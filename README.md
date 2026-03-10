@@ -24,3 +24,8 @@ The trained FinBERT model is not included in this repository due to GitHub file 
 
 Download the model from:
 https://huggingface.co/ProsusAI/finbert
+
+## Open in Google Colab
+
+[Open Notebook](https://colab.research.google.com/github/sowmiyavani28/Financial-Sentiment-Analysis/blob/main/notebooks/financial_sentiment.ipynb)
+
