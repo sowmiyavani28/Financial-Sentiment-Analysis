@@ -1,0 +1,168 @@
+Financial News Sentiment Prediction using Deep Learning & BERT
+1. Introduction
+
+Financial markets are heavily influenced by public sentiment expressed through news and social media platforms. Investors and analysts often rely on these signals to understand market trends and potential price movements. Sentiment analysis helps in automatically identifying whether a piece of financial news reflects positive, negative, or neutral sentiment.
+
+The objective of this project is to build a sentiment classification system that categorizes financial tweets into Bearish, Bullish, or Neutral sentiments. Two approaches were implemented: a baseline LSTM-based deep learning model and a transformer-based FinBERT model. The performance of both models was compared to analyze the improvement achieved using transformer architectures.
+
+2. Dataset
+
+The dataset used in this project is the Twitter Financial News Sentiment dataset available on Hugging Face.
+
+Key properties of the dataset:
+
+Total samples: 11,932 financial tweets
+
+Training set: 9,938 tweets
+
+Validation set: 2,486 tweets
+
+Language: English
+
+Sentiment classes:
+
+Label	Sentiment
+0	Bearish
+1	Bullish
+2	Neutral
+
+Each record contains a financial tweet and its corresponding sentiment label.
+
+Example tweet:
+$AAPL stock surges after strong quarterly earnings report
+
+3. Data Preprocessing
+
+Before training the models, several preprocessing steps were applied:
+
+Text Cleaning
+
+Removed URLs
+
+Removed mentions (@user)
+
+Removed hashtags
+
+Removed extra spaces
+
+Tokenization
+
+LSTM model used Keras Tokenizer
+
+FinBERT used WordPiece tokenizer
+
+Sequence Padding
+
+Tweets were padded to a fixed length of 50 tokens.
+
+Dataset Preparation
+
+Converted text sequences into numerical representations.
+
+Prepared training and validation datasets.
+
+4. Model Architecture
+4.1 LSTM Baseline Model
+
+The first model implemented was a Long Short-Term Memory (LSTM) neural network.
+
+Architecture:
+Embedding Layer
+      ↓
+LSTM Layer
+      ↓
+Dropout Layer
+      ↓
+Fully Connected Layer
+      ↓
+Softmax Output (3 classes)
+
+Training configuration:
+
+Optimizer: Adam
+
+Learning rate: 0.001
+
+Loss function: CrossEntropyLoss
+
+Epochs: 5
+
+The LSTM model serves as the baseline for comparison.
+4.2 FinBERT Model
+
+The second model used FinBERT, a transformer model specifically trained on financial text.
+
+FinBERT is based on the BERT architecture, which uses self-attention mechanisms to understand contextual relationships between words in a sentence.
+
+Advantages of FinBERT:
+
+Pretrained on financial language
+
+Captures contextual meaning
+
+Handles complex financial terminology
+
+Training configuration:
+
+Model: ProsusAI/FinBERT
+
+Optimizer: AdamW
+
+Learning rate: 2e-5
+
+Epochs: 3
+
+Batch size: 16
+
+5. Model Evaluation
+
+The models were evaluated using the following metrics:
+
+Accuracy
+
+Macro F1-score
+
+Precision and Recall
+
+Confusion Matrix
+
+Performance Comparison
+Model	Accuracy	Macro F1
+LSTM	~0.75	~0.74
+FinBERT	~0.89	~0.88
+
+The FinBERT model significantly outperformed the LSTM model due to its ability to capture contextual relationships using transformer attention mechanisms.
+
+6. Deployment
+
+To demonstrate real-time prediction, a Streamlit web application was developed.
+
+The application allows users to:
+
+Enter a financial news headline or tweet
+
+Predict sentiment instantly
+
+Display prediction confidence
+
+Visualize probability distribution using charts
+
+Example prediction:
+Input: Tesla shares fall sharply after weak delivery numbers
+Output: Bearish (88.2% confidence)
+
+This makes the model accessible through a simple user interface.
+
+7. Conclusion
+
+This project demonstrated how natural language processing techniques can be applied to financial sentiment analysis. Two models were implemented and compared: an LSTM-based deep learning model and a transformer-based FinBERT model.
+
+The results show that FinBERT significantly improves performance compared to traditional RNN-based models, achieving higher accuracy and better sentiment classification.
+
+Future improvements could include:
+
+Incorporating larger financial datasets
+
+Using real-time financial news APIs
+
+Building a full sentiment dashboard for market monitoring.
