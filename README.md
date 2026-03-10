@@ -16,4 +16,11 @@ Dataset:
 Twitter Financial News Sentiment Dataset
 
 Deployment:
+
 Streamlit web application for real-time sentiment prediction.
+
+## Model Files
+The trained FinBERT model is not included in this repository due to GitHub file size limits.
+
+Download the model from:
+https://huggingface.co/ProsusAI/finbert
