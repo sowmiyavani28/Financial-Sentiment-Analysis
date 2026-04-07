@@ -19,6 +19,13 @@ Deployment:
 
 Streamlit web application for real-time sentiment prediction.
 
+## Streamlit App Features
+
+- Financial sentiment prediction using FinBERT
+- User-friendly output (Positive, Negative, Neutral)
+- Confidence score display
+- Interactive bar chart visualization
+
 ## Model Files
 The trained FinBERT model is not included in this repository due to GitHub file size limits.
 
